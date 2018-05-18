@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body id ="main">
+  </body>
+
+
+<script src="jsonpath.js"></script>
+
+
+<script>
+  var json = {
+  "firstName": "John",
+  "lastName" : "doe",
+  "age"      : 26,
+  "address"  : {
+    "streetAddress": "naist street",
+    "city"         : "Nara",
+    "postalCode"   : "630-0192"
+  },
+  "phoneNumbers": [
+    {
+      "type"  : "iPhone",
+      "number": "0123-4567-8888"
+    },
+    {
+      "type"  : "home",
+      "number": "0123-4567-8910"
+    }
+  ]
+}
+ 
+res = jsonPath(json, "$..phoneNumbers[0].type")
+
+console.log (res[0]); // return  iPhone
+
+var child = document.createElement('div');
+child.innerHTML = res[0]
+child = child.firstChild;
+document.getElementById('main').appendChild(child);
+
+
+
+ 
+</script>
+
+
+</html>
